@@ -1,5 +1,19 @@
 // Assignment code here
 
+//Defining function to generate user's password
+
+var generatePassword = function(){
+
+  //Defining all possible characters for password
+  var upperCase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var lowerCase = "abcdefghijklmnopqrstuvwxyz";
+  var numerics = "1234567890";
+  var specialChar = "!'`~@#$%^&*()_+-][}{|><?;:=";
+
+  var passwordLength = prompt("Please choose your password length between 8-128 characters.")
+
+}
+
 
 // Get references to the #generate element
 var generateBtn = document.querySelector("#generate");
