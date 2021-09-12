@@ -20,6 +20,11 @@ var generatePassword = function(){
 
   //Prompt user to choose password length
   var passwordLength = prompt("Please choose your password length between 8-128 characters.");
+
+  if(passwordLength === "" || passwordLength === null){
+    alert("Please choose a valid length for your password.");
+    return generatePassword();
+  }
  
   //Turn passwordLength into integer instead of string
   passwordLength = parseInt(passwordLength);
@@ -32,9 +37,9 @@ var generatePassword = function(){
   }
 
   //Prompt user to choose to use uppercase characters or not
-  var useUpperCase = confirm("Would you like uppercase characters in your password?\
-  \nClick Ok to add uppercase characters to your password.\
-  \nClick Cancel to not use uppercase characters in your password.");
+  var useUpperCase = confirm("Would you like Uppercase Characters in your password?\
+  \nClick Ok to add Uppercase Characters to your password.\
+  \nClick Cancel to not use Uppercase Characters in your password.");
 
   //Add uppercase characters to list of characters to be used
   if(useUpperCase === true){
@@ -43,9 +48,9 @@ var generatePassword = function(){
   }
 
   //Prompt user to choose to use lowercase characters or not
-  var useLowerCase = confirm("Would you like lowercase characters in your password?\
-  \nClick Ok to add lowercase characters to your password.\
-  \nClick Cancel to not use lowercase characters in your password.");
+  var useLowerCase = confirm("Would you like Lowercase Characters in your password?\
+  \nClick Ok to add Lowercase Characters to your password.\
+  \nClick Cancel to not use Lowercase Characters in your password.");
 
   //Add lowercase characters to list of characters to be used
   if(useLowerCase === true){
@@ -54,9 +59,9 @@ var generatePassword = function(){
   }
 
   //Prompt user to choose to use numerical characters or not
-  var useNumeric = confirm("Would you like lowercase characters in your password?\
-  \nClick Ok to add lowercase characters to your password.\
-  \nClick Cancel to not use lowercase characters in your password.");
+  var useNumeric = confirm("Would you like Numerical Characters in your password?\
+  \nClick Ok to add Numerical Characters to your password.\
+  \nClick Cancel to not use Numerical Characters in your password.");
  
   //Add numerical characters to list of characters to be used
   if(useNumeric === true){
@@ -65,9 +70,9 @@ var generatePassword = function(){
    }
   
   //Prompt user to choose to use special characters or not
-  var useSpecial = confirm("Would you like lowercase characters in your password?\
-  \nClick Ok to add lowercase characters to your password.\
-  \nClick Cancel to not use lowercase characters in your password.");
+  var useSpecial = confirm("Would you like Special characters in your password?\
+  \nClick Ok to add Special Characters to your password.\
+  \nClick Cancel to not use Special Characters in your password.");
  
   //Add special characters to list of characters to be used
   if(useSpecial === true){
