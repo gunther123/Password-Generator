@@ -4,16 +4,14 @@
 
 var generatePassword = function(){
 
-  //Defining all possible characters for password
+  //Defining all possible characters for password and password length in object
   var passwordChars = {
     upperCase:"ABCDEFGHIJKLMNOPQRSTUVWXYZ",
     lowerCase:"abcdefghijklmnopqrstuvwxyz",
     numerics:"1234567890",
     specialChar:"!'`~@#$%^&*()_+-][}{|><?;:=",
+    passwordLimit: [8,128]
   }
-
-  //Defining Password minimum and maximum password size limit
-  var passwordLimit = [8,128];
 
   //Defining container for characters to be used in password
   var pwdAllowableChar = "";
@@ -31,7 +29,7 @@ var generatePassword = function(){
   console.log(passwordLength);
 
   //Check if user selected an acceptable password length
-  if (passwordLength < passwordLimit[0] || passwordLength > passwordLimit[1]){
+  if (passwordLength < passwordChars.passwordLimit[0] || passwordLength > passwordChars.passwordLimit[1]){
     alert("Please choose a valid length for your password.");
     return generatePassword();
   }
