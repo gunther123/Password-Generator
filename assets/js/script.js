@@ -19,7 +19,7 @@ var generatePassword = function(){
   var passwordLength = prompt("Please choose your password length between 8-128 characters.");
 
   //Defining container for characters to be used in password
-  var passwordContainer = "";
+  var pwdAllowableChar = "";
  
   //Turn passwordLength into integer instead of string
   parseInt(passwordLength);
@@ -37,9 +37,10 @@ var generatePassword = function(){
 
   //Add uppercase characters to list of characters to be used
   if(useUpperCase === true){
-    passwordContainer = passwordContainer + passwordChars.upperCase;
-    console.log(passwordContainer);
+    pwdAllowableChar = pwdAllowableChar + passwordChars.upperCase;
+    console.log(pwdAllowableChar);
   }
+
   //Prompt user to choose to use lowercase characters or not
   var useLowerCase = confirm("Would you like lowercase characters in your password?\
   \nClick Ok to add lowercase characters to your password.\
@@ -47,9 +48,39 @@ var generatePassword = function(){
 
   //Add lowercase characters to list of characters to be used
   if(useLowerCase === true){
-    passwordContainer = passwordContainer + passwordChars.lowerCase;
-    console.log(passwordContainer);
+    pwdAllowableChar = pwdAllowableChar + passwordChars.lowerCase;
+    console.log(pwdAllowableChar);
   }
+
+  //Prompt user to choose to use numerical characters or not
+  var useNumeric = confirm("Would you like lowercase characters in your password?\
+  \nClick Ok to add lowercase characters to your password.\
+  \nClick Cancel to not use lowercase characters in your password.")
+ 
+  //Add numerical characters to list of characters to be used
+  if(useNumeric === true){
+   pwdAllowableChar = pwdAllowableChar + passwordChars.numerics;
+   console.log(pwdAllowableChar);
+   }
+  
+  //Prompt user to choose to use special characters or not
+  var useSpecial = confirm("Would you like lowercase characters in your password?\
+  \nClick Ok to add lowercase characters to your password.\
+  \nClick Cancel to not use lowercase characters in your password.")
+ 
+  //Add special characters to list of characters to be used
+  if(useSpecial === true){
+   pwdAllowableChar = pwdAllowableChar + passwordChars.specialChar;
+   console.log(pwdAllowableChar);
+   }
+
+  //Check that at least one criteria was chosen
+  if(useUpperCase === false && useLowerCase === false && useNumeric === false && useSpecial ===false){
+    alert("You need to pick at least 1 option to generate a password. Try again!")
+    generatePassword();
+  }
+
+  
 
   
 
