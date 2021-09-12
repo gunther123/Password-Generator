@@ -18,18 +18,13 @@ var generatePassword = function(){
 
   //Prompt user to choose password length
   var passwordLength = prompt("Please choose your password length between 8-128 characters.");
-
-  if(passwordLength === "" || passwordLength === null){
-    alert("Please choose a valid length for your password.");
-    return generatePassword();
-  }
  
   //Turn passwordLength into integer instead of string
   passwordLength = parseInt(passwordLength);
   console.log(passwordLength);
 
   //Check if user selected an acceptable password length
-  if (passwordLength < passwordChars.passwordLimit[0] || passwordLength > passwordChars.passwordLimit[1]){
+  if (passwordLength < passwordChars.passwordLimit[0] || passwordLength > passwordChars.passwordLimit[1] || isNaN(passwordLength) === true){
     alert("Please choose a valid length for your password.");
     return generatePassword();
   }
