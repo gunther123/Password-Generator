@@ -15,25 +15,26 @@ var generatePassword = function(){
   //Defining Password minimum and maximum password size limit
   var passwordLimit = [8,128];
 
-  //Prompt user to choose password length
-  var passwordLength = prompt("Please choose your password length between 8-128 characters.");
-
   //Defining container for characters to be used in password
   var pwdAllowableChar = "";
+
+  //Prompt user to choose password length
+  var passwordLength = prompt("Please choose your password length between 8-128 characters.");
  
   //Turn passwordLength into integer instead of string
-  parseInt(passwordLength);
+  passwordLength = parseInt(passwordLength);
+  console.log(passwordLength);
 
   //Check if user selected an acceptable password length
-  if (passwordLength < passwordLimit[0] | passwordLength > passwordLimit[1] ){
-    alert("Please choose a valid length for your password.")
+  if (passwordLength < passwordLimit[0] || passwordLength > passwordLimit[1]){
+    alert("Please choose a valid length for your password.");
     return generatePassword();
   }
 
   //Prompt user to choose to use uppercase characters or not
   var useUpperCase = confirm("Would you like uppercase characters in your password?\
   \nClick Ok to add uppercase characters to your password.\
-  \nClick Cancel to not use uppercase characters in your password.")
+  \nClick Cancel to not use uppercase characters in your password.");
 
   //Add uppercase characters to list of characters to be used
   if(useUpperCase === true){
@@ -44,7 +45,7 @@ var generatePassword = function(){
   //Prompt user to choose to use lowercase characters or not
   var useLowerCase = confirm("Would you like lowercase characters in your password?\
   \nClick Ok to add lowercase characters to your password.\
-  \nClick Cancel to not use lowercase characters in your password.")
+  \nClick Cancel to not use lowercase characters in your password.");
 
   //Add lowercase characters to list of characters to be used
   if(useLowerCase === true){
@@ -55,7 +56,7 @@ var generatePassword = function(){
   //Prompt user to choose to use numerical characters or not
   var useNumeric = confirm("Would you like lowercase characters in your password?\
   \nClick Ok to add lowercase characters to your password.\
-  \nClick Cancel to not use lowercase characters in your password.")
+  \nClick Cancel to not use lowercase characters in your password.");
  
   //Add numerical characters to list of characters to be used
   if(useNumeric === true){
@@ -66,7 +67,7 @@ var generatePassword = function(){
   //Prompt user to choose to use special characters or not
   var useSpecial = confirm("Would you like lowercase characters in your password?\
   \nClick Ok to add lowercase characters to your password.\
-  \nClick Cancel to not use lowercase characters in your password.")
+  \nClick Cancel to not use lowercase characters in your password.");
  
   //Add special characters to list of characters to be used
   if(useSpecial === true){
@@ -75,21 +76,20 @@ var generatePassword = function(){
    }
 
   //Check that at least one criteria was chosen
-  if(useUpperCase === false && useLowerCase === false && useNumeric === false && useSpecial ===false){
-    alert("You need to pick at least 1 option to generate a password. Try again!")
-    generatePassword();
+  if(useUpperCase === false && useLowerCase === false && useNumeric === false && useSpecial === false){
+    alert("You need to pick at least 1 option to generate a password. Try again!");
+    return generatePassword();
   }
+  //Defining user's password
+  var userPassword = "";
 
-  
-
-  
-
-
-
-
-
-
-
+  //Generate user's password
+  for(i=0; i < passwordLength; i++){
+    var charIndex = Math.floor(Math.random() * pwdAllowableChar.length);
+    console.log(charIndex);
+    userPassword = userPassword + pwdAllowableChar[charIndex];
+  }
+  return userPassword;
 }
 
 
